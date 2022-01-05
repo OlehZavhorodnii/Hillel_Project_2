@@ -1,0 +1,53 @@
+# medical_cooperative
+
+Patients
+-
+patient_id int PK
+surname varchar
+name varchar
+sex varchar
+date_of_birth date
+home_address varchar
+examination_id set FK >- Examinations.examination_id
+
+
+Examinations
+-
+examination_id int PK
+patient_id int FK - Patients.patient_id
+doctor_id set FK >- Doctors.doctor_id
+examination_date datetime
+examination_place varchar
+symptoms varchar
+diagnosis varchar
+prescription varchar
+drug_id set FK >- Drugs.drug_id
+
+
+Doctors
+-
+doctor_id int PK
+surname varchar
+name varchar
+
+
+Drugs
+-
+drug_id int PK
+name varchar
+action varchar
+reception varchar
+side_effects varchar
+
+
+# PK    - Primary key
+# FK    - Foreign Key
+# -     - one TO one
+# -<    - one TO many
+# >-    - many TO one
+# >-<   - many TO many
+# -0    - one TO zero or one
+# 0-    - zero or one TO one
+# 0-0   - zero or one TO zero or one
+# -0<   - one TO zero or many
+# >0-   - zero or many TO one

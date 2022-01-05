@@ -1,0 +1,38 @@
+# climbing_club
+
+Climbings
+-
+climbing_id int PK
+mountain_id set FK >- Mountains.mountain_id
+date_beginning datetime
+date_completion datetime
+climber_id set FK >- Climbers.climber_id
+
+
+Climbers
+-
+climber_id int PK
+surname varchar
+name varchar
+climbing_id set FK >0- Climbings.climbing_id
+
+
+Mountains
+-
+mountain_id int PK
+name varchar
+height float
+location varchar
+
+
+# PK    - Primary key
+# FK    - Foreign Key
+# -     - one TO one
+# -<    - one TO many
+# >-    - many TO one
+# >-<   - many TO many
+# -0    - one TO zero or one
+# 0-    - zero or one TO one
+# 0-0   - zero or one TO zero or one
+# -0<   - one TO zero or many
+# >0-   - zero or many TO one

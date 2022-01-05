@@ -1,0 +1,57 @@
+# auctions_firm
+
+Sellers
+-
+seller_id int PK
+name varchar
+
+
+Items
+-
+item_id int PK
+description varchar
+seller_id int FK - Sellers.seller_id
+
+
+Lots
+-
+lot_id int PK
+starting_price float
+item_id int FK - Items.item_id
+auction_id set FK >- Auctions.auction_id
+
+
+Auctions
+-
+auction_id int PK
+datetime datetime
+place varchar
+specificity varchar
+
+
+Customers
+-
+customer_id int PK
+name varchar
+
+
+Transactions
+-
+transaction_id int PK
+auction_id int FK - Auctions.auction_id
+lot_id int FK - Lots.lot_id
+customer_id int FK - Customers.customer_id
+actual_price float 
+
+
+# PK    - Primary key
+# FK    - Foreign Key
+# -     - one TO one
+# -<    - one TO many
+# >-    - many TO one
+# >-<   - many TO many
+# -0    - one TO zero or one
+# 0-    - zero or one TO one
+# 0-0   - zero or one TO zero or one
+# -0<   - one TO zero or many
+# >0-   - zero or many TO one
