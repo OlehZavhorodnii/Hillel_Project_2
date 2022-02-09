@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %} 
+
+{% block content %}
+
+    <header class="page-header">
+        <div class="container">
+            <h3>Delete this post: {{ object.title }}</h3>
+            <p></p>
+            <form method='post'>
+                {% csrf_token %}
+                <button class="btn btn-danger" type='submit'>Confirm</button>
+            </form>
+        </div>
+    </header>
+
+{% endblock %}

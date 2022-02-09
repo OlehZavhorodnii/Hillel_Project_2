@@ -19,7 +19,7 @@ class Post(UniversalFields):
         )
 
     def __str__(self) -> str:
-        return f'{self.title}, {self.user}, {self.created_at}, {self.updated_at}'
+        return f'{self.title}, {self.content}, {self.user}, {self.created_at}, {self.updated_at}'
 
 
 class Like(UniversalFields):

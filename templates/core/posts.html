@@ -4,13 +4,15 @@
 
     <header class="page-header">
         <div class="container">
-            <h1>Posts</h1>
+            <h3>Posts</h3>
         </div>
     </header>
-
-    {% for post in object_list %}
-
-    <p>{{ post.title }}</p>
+    
+    {% for post, likes, dislikes in results %}
+    
+    <p><a href="{% url 'posts:detail' post.id %}">
+        {{ post.title }}</a> | Like {{ likes }} | Dislike {{ dislikes }}
+    </p>
 
     {% endfor %}
 

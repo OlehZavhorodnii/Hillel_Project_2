@@ -2,13 +2,16 @@
 
 {% block content %}
 
+{% load static %}
+
     <header class="page-header">
         <div class="container">
-            <h1>Home</h1>
+            <h3>Home</h3>
         </div>
     </header>
     <p>
         Django project "Social network". This project about use Django and create web app on Django.
     </p>
+    <p><img src="{% static 'core/image/Django_Logo.png' %}" alt="django_logo" width="1000" height="428"></p>
 
 {% endblock %}

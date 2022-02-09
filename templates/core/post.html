@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %} 
+
+{% block content %}
+
+    <header class="page-header">
+        <div class="container">
+            <h3>{{ object.title }}</h3>
+            <text class="fst-italic">
+                Author: {{ object.user }}; 
+                post created: {{ object.created_at }}; 
+                last updated: {{ object.updated_at }}
+            </text>
+            <p></p>
+            <blockquote class="blockquote">
+                <p>{{ object.content }}</p>
+            </blockquote>
+        </div>
+        <p><a name="delete" class="btn btn-danger" href="{% url 'posts:delete' object.id %}" role="button">Delete post</a></p>
+    </header>
+    
+{% endblock %}
