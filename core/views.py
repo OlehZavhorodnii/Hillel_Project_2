@@ -1,6 +1,9 @@
+from typing import Any
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 from .models import Post
+from .forms import PostForm, User
 from django.urls import reverse_lazy
 
 
@@ -44,8 +47,26 @@ class PostDeleteView(DeleteView):
 
 
 class PostUpdateView(UpdateView):
-    pass
+    queryset = Post.objects.all()
+    template_name = 'core/post_update.html'
+    pk_url_kwarg = 'id'
+    fields = ['title', 'content']
+    success_url = reverse_lazy('posts:list')
 
 
 class PostCreateView(CreateView):
-    pass
+    queryset = Post.objects.all()
+    template_name = 'core/post_create.html'
+    success_url = reverse_lazy('posts:list')
+    form_class = PostForm
+
+    def post(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
+        form = PostForm(request.POST)
+        first_user = form.save(commit=False)
+        first_user.user = User.objects.first()
+        first_user.save()
+
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)

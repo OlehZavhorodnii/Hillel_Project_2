@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %} 
+
+{% block content %}
+
+    <header class="page-header">
+        <div class="container">
+            <h3>Update this post: {{ object.title }}</h3>
+            <p></p>
+            <form method='post'>
+                {% csrf_token %}
+                <p>{{ form }}</p>
+                <p><button class="btn btn-primary" type='submit'>Update</button></p>
+            </form>
+        </div>
+    </header>
+
+{% endblock %}

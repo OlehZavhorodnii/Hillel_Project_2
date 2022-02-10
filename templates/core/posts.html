@@ -7,6 +7,9 @@
             <h3>Posts</h3>
         </div>
     </header>
+    <p>
+        <a name="create" class="btn btn-primary" href="{% url 'posts:create' %}" role="button">Create new post</a>
+    </p>
     
     {% for post, likes, dislikes in results %}
     
@@ -15,6 +18,6 @@
     </p>
 
     {% endfor %}
-
+    
 {% endblock %}
 

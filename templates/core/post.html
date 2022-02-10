@@ -15,7 +15,10 @@
                 <p>{{ object.content }}</p>
             </blockquote>
         </div>
-        <p><a name="delete" class="btn btn-danger" href="{% url 'posts:delete' object.id %}" role="button">Delete post</a></p>
+        <p>
+            <a name="update" class="btn btn-primary" href="{% url 'posts:update' object.id %}" role="button">Update post</a>
+            <a name="delete" class="btn btn-danger" href="{% url 'posts:delete' object.id %}" role="button">Delete post</a>
+        </p>
     </header>
     
 {% endblock %}

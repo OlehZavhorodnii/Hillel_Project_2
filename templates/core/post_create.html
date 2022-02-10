@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %} 
+
+{% block content %}
+
+    <header class="page-header">
+        <div class="container">
+            <h3>Create new post</h3>
+            <p></p>
+            <form method='post'>
+                {% csrf_token %}
+                <p>{{ form }}</p>
+                <p><button class="btn btn-primary" type='submit'>Create post</button></p>
+            </form>
+        </div>
+    </header>
+
+{% endblock %}
